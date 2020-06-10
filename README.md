@@ -13,10 +13,12 @@ Después
     cd beforget-smile
     npm install
 
-Es necesario copiar el archivo `jeefacetransferNNC.json` que se encuentra en `src/jeeliz` en el directorio `/dist`
-
-Una vez realizado esto levantamos el proyecto en modo desarrollo con el siguiente comando
+Una vez realizado esto levantamos el proyecto en modo desarrollo con el siguiente comando:
 
     npm run serve
 
-En el directorio `dist` se la versión.
+Para hacer el build de los archivos finales el comando es:
+    
+    npm run build
+
+Es necesario copiar en el directorio `/dist` el archivo `jeefacetransferNNC.json` que se encuentra en `src/jeeliz`
