@@ -165,7 +165,10 @@ export default {
       color: #000000;
     }
     .activa-tu-webcam-par{
-        font-family:Roboto;
+        position: relative;
+        display: inline-block;
+        max-width: 565px;
+        font-family:'Roboto';
         font-size: 1.6em;
         font-weight: normal;
         font-stretch: normal;

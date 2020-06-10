@@ -57,17 +57,20 @@ var JeelizSVGHelper=(function(){
             _morphFactorsDict[morphKey]=_morphFactorsArr[morphIndex];
         });
 
-
+        var bestScore=-2e12, score;
         _expressions.forEach(function(expressionVariants, expressionVariantsIndex){
             //which expression variant has the best score ?
-            if(expressionVariants['svgSmile'](_morphFactorsDict) >= 0.7){
+            score=expressionVariants['svgSmile'](_morphFactorsDict);
+            score+=_hysteresis; 
+            if (score>bestScore){
+                bestScore=score;
+            }
+            if(bestScore > 0.12){
                 Vue.set(Vue.prototype, '$smile', true);
             }else{
                 Vue.set(Vue.prototype, '$smile', false);
             }
-            // console.log(expressionVariants['svgSmile'](_morphFactorsDict))
-            
-
+            if (bestScore<-1) return;
         }); //end loop on expression groups
 
         if (_rotationCallback){

@@ -24,5 +24,10 @@ export default {
     &.mt-footer-bfg{
       margin-top: 156px;
     }
+    img{
+      width: 30%;
+      max-width: 253px;
+      min-width: 250px;
+    }
   }
 </style>

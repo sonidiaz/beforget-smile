@@ -1,5 +1,5 @@
 # beforget-smile
 /node_modules
-/dist
 .vscode
 package-lock.json
+.vercel

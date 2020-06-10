@@ -1,22 +1,22 @@
 <template>
   <Fragment>
       <div class="row justify-content-md-center">
-        <div class="col col-md-12 col-lg-8">
-          <span v-if="!loadinCamera" class="bfg-smile-title ">Las relaciones sostenibles comienzan con una sonrisa :)</span>
-          <span v-if="loadinCamera" class="bfg-smile-title ">¿Sabías que la sonrisas se contagian?</span>
+        <div class="col col-md-12 col-lg-9">
+          <span v-if="!loadinCamera" class="bfg-smile-title  animate fadeIn fast">Las relaciones sostenibles comienzan con una sonrisa :)</span>
+          <span v-if="loadinCamera" class="bfg-smile-title  animate fadeIn fast">¿Sabías que la sonrisas se contagian?</span>
         </div>
       </div>
-      <div v-if="isVisibleButton" class="row justify-content-md-center my-6">
-        <div class="col col-sm-12 col-md-8 col-lg-6">
+      <div v-if="isVisibleButton" class="row justify-content-md-center my-6 animate fadeIn fast">
+        <div class="col col-sm-12">
           <span class="activa-tu-webcam-par">Activa tu webcam para capturar tu sonrisa y conoce más de BeForGet Community</span>
         </div>
       </div>
       <div v-if="isVisibleButton" class="row justify-content-md-center mt-lg-5">
         <div class="col-lg-12">
-          <button class="btn btn-primary bfg-primary" v-on:click="activeCamara">Activa tu webcam</button>
+          <button class="btn btn-primary bfg-primary  animate fadeIn fast" v-on:click="activeCamara">Activa tu webcam</button>
         </div>
         <div class="col-lg-12 mt-4">
-          <button  class="btn btn-primary bfg-secundary" v-on:click="goToVideo">Ups! No tengo cámara</button>
+          <button  class="btn btn-primary bfg-secundary  animate fadeIn fast" v-on:click="goToVideo">Ups! No tengo cámara</button>
         </div>
       </div>
   </Fragment>

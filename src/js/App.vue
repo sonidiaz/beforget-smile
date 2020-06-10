@@ -36,6 +36,37 @@ export default {
     width: 100%;
     height: auto;
   }
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .btn-primary.focus, .btn-primary:focus{
+    background-color: #5158be;
+  }
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn;
+  }
   @media (min-width: 968px){
     .bfg-container{
      min-height: 500px;
