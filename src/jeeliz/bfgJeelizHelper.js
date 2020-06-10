@@ -33,11 +33,11 @@ var JeelizSVGHelper=(function(){
     function callbackReady(errCode){
 
         if (errCode){
-            console.log('ERROR in JeelizSVGHelper - CANNOT INITIALIZE JEEFACETRANSFERAPI : errCode =', errCode);
+            // console.log('ERROR in JeelizSVGHelper - CANNOT INITIALIZE JEEFACETRANSFERAPI : errCode =', errCode);
             Vue.set(Vue.prototype, '$isAccessCamera', false);
             return;
         }
-        console.log('INFO : JEEFACETRANSFERAPI is ready !!!');
+        // console.log('INFO : JEEFACETRANSFERAPI is ready !!!');
         Vue.set(Vue.prototype, '$videoInit', true);
         _morphFactorsArr=JEEFACETRANSFERAPI.get_morphTargetInfluencesStabilized();
         if (_rotationCallback){
@@ -52,7 +52,6 @@ var JeelizSVGHelper=(function(){
     }
     
     function onMorphUpdate(quality, benchmarkCoeff){
-
         _morphIndexToName.forEach(function(morphKey, morphIndex){
             _morphFactorsDict[morphKey]=_morphFactorsArr[morphIndex];
         });

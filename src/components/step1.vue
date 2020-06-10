@@ -3,7 +3,7 @@
       <div class="row justify-content-md-center">
         <div class="col col-md-12 col-lg-9">
           <span v-if="!loadinCamera" class="bfg-smile-title  animate fadeIn fast">Las relaciones sostenibles comienzan con una sonrisa :)</span>
-          <span v-if="loadinCamera" class="bfg-smile-title  animate fadeIn fast">¿Sabías que la sonrisas se contagian?</span>
+          <span v-if="loadinCamera" class="bfg-smile-title  animate fadeIn fast bfg-frase-small">¿Sabías que la sonrisas se contagian?</span>
         </div>
       </div>
       <div v-if="isVisibleButton" class="row justify-content-md-center my-6 animate fadeIn fast">

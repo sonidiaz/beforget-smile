@@ -67,15 +67,16 @@ export default {
       if(this.videoReady){
         if(newValue) {
           this.alreadySmile = true;
-          setTimeout(() => {
-            this.alreadySmile = false;
+          const delayShowVideo = () => (new Promise((resolve) => setTimeout(() => {resolve()}, 2500)));
+          (async () => {
+            await delayShowVideo();
             this.play();
             this.isActive = true;
             this.isSmile = true;
             this.step2Visible = false;
             this.step3 = false;
             JEEFACETRANSFERAPI.switch_sleep(true);
-          }, 4000);
+          })();          
         }else{
           // this.step3 = true;
           // this.isSmile = false;

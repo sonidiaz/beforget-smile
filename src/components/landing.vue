@@ -108,15 +108,7 @@ export default {
     initVideoSmile() {
 
       this.loading = true;
-      JEEFACETRANSFERAPI.onWebcamGet((e) => {
-        console.log('Damos permiso a la camara')
-        
-      })
-      JEEFACETRANSFERAPI.onWebcamAsk((e) => {
-          // this.step1 = false;
-          // this.isRemember = true;
-          console.log('Preguntamos por la camara')
-      })
+      
       bfgJeelizHelper.init({
         canvasId: 'jeefacetransferCanvas',
         NNCpath: './',
@@ -138,14 +130,6 @@ export default {
     if(isMobile.any()) {
       Vue.set(Vue.prototype, '$mobileDetected', true);
     }
-    // const pregutanVideo = setInterval(() => {
-    //   if(bfgJeelizHelper.smileShow){
-    //     console.log('activaVideo');
-    //     // this.play()
-    //     clearInterval(pregutanVIdeo)
-    //   };
-    // }, 1000);
-
   }
 }
 </script>
@@ -163,6 +147,10 @@ export default {
       letter-spacing: 0.88px;
       text-align: center;
       color: #000000;
+      &.bfg-frase-small{
+        max-width: 500px;
+        display: inline-block;
+      }
     }
     .activa-tu-webcam-par{
         position: relative;
