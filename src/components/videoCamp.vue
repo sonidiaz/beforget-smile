@@ -59,7 +59,8 @@ export default {
       videoReady: false,
       videoLoaded: true,
       isActive: false,
-      alreadySmile: false
+      alreadySmile: false,
+      videoDuration: null
     }
   },
   watch:{
@@ -88,7 +89,13 @@ export default {
   },
   methods: {
     playing(e) {
-      e.target.loadPlaylist()
+      this.videoDuration = e.target.getDuration();
+      const timeVideo = setInterval(() => {
+        if(e.target.getCurrentTime() >= this.videoDuration){
+          window.scroll({ top: window.innerHeight, behavior: 'smooth' });
+          clearInterval(timeVideo)
+        }
+      }, 1000);
     },
     ready(e) {
       this.player = e.target
