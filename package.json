@@ -4,9 +4,10 @@
   "description": "",
   "main": "Beforget Smile",
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack-dev-server --open --mode=development",
-    "safari-serve": "webpack-dev-server --open --mode=development --host 0.0.0.0 --port 3002"
+    "build": "webpack && node copyFile.js",
+    "serve": "webpack-dev-server --open --mode=development && node copyFile.js",
+    "safari-serve": "webpack-dev-server --open --mode=development --host 0.0.0.0 --port 3002",
+    "mueve": "node copyFile.js"
   },
   "keywords": [],
   "author": "",
