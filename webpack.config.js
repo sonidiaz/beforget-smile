@@ -68,8 +68,8 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin(
         {
-          title: "Smile Bfg",
-          template: "./src/index.html"
+          template: "./src/index.html",
+          prod: !isDevelopment ? true : false
        }
       )
     ]
