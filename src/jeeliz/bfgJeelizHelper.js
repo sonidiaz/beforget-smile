@@ -64,7 +64,7 @@ var JeelizSVGHelper=(function(){
             if (score>bestScore){
                 bestScore=score;
             }
-            if(bestScore > 0.12){
+            if(bestScore > 0.4){
                 Vue.set(Vue.prototype, '$smile', true);
             }else{
                 Vue.set(Vue.prototype, '$smile', false);

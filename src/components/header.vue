@@ -19,8 +19,17 @@ export default {
 </script>
 <style lang="scss">
   .bfg-my-5{
-    margin-top: 110px;
-    margin-bottom: 110px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+  header {
+    a{
+      img{
+        position: relative;
+        left: 15px;
+        width: 31%;
+      }
+    }
   }
   @media (max-width: 768px) {
     header {

@@ -63,8 +63,9 @@ export default {
   },
   watch: {
     '$smile'(newValue) {
+      this.isPlaying = newValue;
       if(newValue){
-        this.isPlaying = true;
+      this.isPlaying = true;
       }else{
         this.isPlaying = false;
         this.isSmile = false;
@@ -106,15 +107,12 @@ export default {
       this.isRemember = false;
     },
     initVideoSmile() {
-
       this.loading = true;
-      
       bfgJeelizHelper.init({
         canvasId: 'jeefacetransferCanvas',
         NNCpath: './',
         hysteresis: 0.1, //bonus score for already selected expression. Against flickering
         isMirror: true,
-
         expressions: [ //list of uncorrelated expressions (for example the mouth is uncorrelated with the right eye)
           { 
             svgSmile: function (ks) {
@@ -122,7 +120,6 @@ export default {
             }
           }
         ]
-
       });
     }
   },
@@ -143,10 +140,11 @@ export default {
       font-weight: 300;
       font-stretch: normal;
       font-style: normal;
-      line-height: 1.31;
+      line-height: 1;
       letter-spacing: 0.88px;
       text-align: center;
       color: #000000;
+      
       &.bfg-frase-small{
         max-width: 500px;
         display: inline-block;
@@ -155,16 +153,17 @@ export default {
     .activa-tu-webcam-par{
         position: relative;
         display: inline-block;
-        max-width: 565px;
+        max-width: 539px;
         font-family:'Roboto';
         font-size: 1.6em;
-        font-weight: normal;
+        font-weight: 400;
         font-stretch: normal;
         font-style: normal;
         line-height: 1.33;
         letter-spacing: 0.51px;
         text-align: center;
         color: #000000;
+
     }
     .bfg-primary{
       position: relative;

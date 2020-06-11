@@ -4,8 +4,8 @@
   "description": "",
   "main": "Beforget Smile",
   "scripts": {
-    "build": "webpack && node copyFile.js",
-    "serve": "webpack-dev-server --open --mode=development && node copyFile.js",
+    "build": "webpack && npm run mueve",
+    "serve": "webpack-dev-server --open --mode=development && npm run mueve",
     "safari-serve": "webpack-dev-server --open --mode=development --host 0.0.0.0 --port 3002",
     "mueve": "node copyFile.js"
   },

@@ -22,7 +22,7 @@ export default {
     padding: 109px 0;
     background: #282828;
     &.mt-footer-bfg{
-      margin-top: 156px;
+      margin-top: 100px;
     }
     img{
       width: 30%;

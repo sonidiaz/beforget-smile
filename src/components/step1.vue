@@ -1,19 +1,21 @@
 <template>
   <Fragment>
       <div class="row justify-content-md-center">
-        <div class="col col-md-12 col-lg-9">
-          <span v-if="!loadinCamera" class="bfg-smile-title  animate fadeIn fast">Las relaciones sostenibles comienzan con una sonrisa :)</span>
-          <span v-if="loadinCamera" class="bfg-smile-title  animate fadeIn fast bfg-frase-small">¿Sabías que la sonrisas se contagian?</span>
+        <div class="col col-md-12 col-lg-8">
+          <span v-if="!loadinCamera" class="bfg-smile-title  animate fadeIn fast">Las relaciones sostenibles
+empiezan con una sonrisa :)</span>
+          <p v-if="loadinCamera" class="bfg-smile-title text-activate-camara animate fadeIn fast ">  <b> Activando cámara…</b></p>
+          <span v-if="loadinCamera" class="bfg-smile-title  animate fadeIn fast ">Prepara tu mejor sonrisa</span>
         </div>
       </div>
       <div v-if="isVisibleButton" class="row justify-content-md-center my-6 animate fadeIn fast">
         <div class="col col-sm-12">
-          <span class="activa-tu-webcam-par">Activa tu webcam para capturar tu sonrisa y conoce más de BeForGet Community</span>
+          <span class="activa-tu-webcam-par">Activa tu cámara, <b>sonríe</b>  y recibe la bienvenida de la Comunidad </span>
         </div>
       </div>
       <div v-if="isVisibleButton" class="row justify-content-md-center mt-lg-5">
         <div class="col-lg-12">
-          <button class="btn btn-primary bfg-primary  animate fadeIn fast" v-on:click="activeCamara">Activa tu webcam</button>
+          <button class="btn btn-primary bfg-primary  animate fadeIn fast" v-on:click="activeCamara">Activa tu cámara</button>
         </div>
         <div class="col-lg-12 mt-4">
           <button  class="btn btn-primary bfg-secundary  animate fadeIn fast" v-on:click="goToVideo">Ups! No tengo cámara</button>
@@ -52,8 +54,11 @@ export default {
 </script>
 <style lang="scss">
   .my-6{
-    margin-bottom: 5rem !important;
-    margin-top: 6rem !important;
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+  }
+  .text-activate-camara{
+    font-size: 1.6em !important;
   }
   @media (max-width: 768px) {
     .my-6{

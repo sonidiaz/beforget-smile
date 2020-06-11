@@ -10,31 +10,31 @@
     <noStopSmile 
       v-if="step3"
     />
+    <div v-bind:class="[{ active: isActive }, 'bfg-wait-load row justify-content-md-center mt-5 mb-5']">
+      <div class="col col-md-12 col-lg-8 animate fadeIn">
+        <span class="bfg-text-1">Estos son algunos de los <strong>agentes de cambio</strong> de la comunidad, sus sonrisas son de plenitud.</span>
+      </div>
+    </div>
     <div class="bfg-container-video">
-      <div v-bind:class="{ active: isActive }">
+      <div v-bind:class="[{ active: isActive }]">
         <youtube :video-id="videoId" @ready="ready" @playing="playing" :player-vars="{ autoplay:0,  rel: 0, playsinline: 1}"></youtube>
       </div>
     </div>
-    <div class="row justify-content-md-center mt-5 mb-5">
-        <div class="col col-md-10 col-lg-7 animate fadeIn">
-          <span class="bfg-text-1">Los <strong>agentes de cambio activos</strong> nos reconocemos por la <strong>sonrisa plena</strong> </span>
-        </div>
+    <div v-bind:class="[{ active: isActive }, 'bfg-wait-load row justify-content-md-center mt-5']">
+      <div class="col col-lg-6">
+        <span class="bfg-text-1 bfg-text-light  animate fadeIn fast"> <b>¿Quieres que nos conozcamos más?</b> </span>
       </div>
-      <div class="row justify-content-md-center mt-5">
-        <div class="col col-lg-6">
-          <span class="bfg-text-1 bfg-text-light  animate fadeIn fast"> <strong>¿Quieres ser uno más?</strong> </span>
-        </div>
+    </div>
+    <div v-bind:class="[{ active: isActive }, 'bfg-wait-load row justify-content-md-center mt-3']">
+      <div class="col-10 col-md-10 col-lg-7">
+        <span class="bfg-text-2  animate fadeIn fast">Ven a la próxima BeForGet Talk y preséntate a la Comunidad</span>
       </div>
-      <div class="row justify-content-md-center mt-3">
-        <div class="col col-lg-8">
-          <span class="bfg-text-2  animate fadeIn fast">Ven a la próxima BeForGet Talk y preséntate a Comunidad</span>
-        </div>
+    </div>
+    <div v-bind:class="[{ active: isActive }, 'bfg-wait-load row justify-content-md-center mt-5']">
+      <div class="col-lg-12">
+        <a class="btn btn-primary bfg-primary  animate fadeIn fast" href="https://www.beforget.com/talks">Inscríbete y conócenos</a>
       </div>
-      <div class="row justify-content-md-center mt-5">
-        <div class="col-lg-12">
-          <a class="btn btn-primary bfg-primary  animate fadeIn fast" href="https://www.beforget.com/talks">Inscríbete y conócenos</a>
-        </div>
-      </div>
+    </div>
   </Fragment>
 </template>
 <script>
@@ -65,26 +65,16 @@ export default {
   },
   watch:{
     "isPlay"(newValue) {
-      if(this.videoReady){
+      // if(this.videoReady){
         if(newValue) {
-          this.alreadySmile = true;
-          const delayShowVideo = () => (new Promise((resolve) => setTimeout(() => {resolve()}, 2500)));
-          (async () => {
-            await delayShowVideo();
-            this.play();
-            this.isActive = true;
-            this.isSmile = true;
-            this.step2Visible = false;
-            this.step3 = false;
-            JEEFACETRANSFERAPI.switch_sleep(true);
-          })();          
+          this.showAndPlayVideo();        
         }else{
           // this.step3 = true;
           // this.isSmile = false;
           // this.isActive = false;
           // this.pause()
         } 
-      }
+      // }
     }
   },
   methods: {
@@ -101,17 +91,38 @@ export default {
       this.player = e.target
       this.videoLoaded = false;
       this.videoReady = true;
+    
     },
     play() {
       this.player.playVideo()
     },
     pause() {
       this.player.pauseVideo()
+    },
+    async showAndPlayVideo() {
+      this.alreadySmile = true;
+      const delayShowVideo = () => (new Promise((resolve) => setTimeout(() => {resolve()}, 2500)));
+      await delayShowVideo();
+      this.play();
+      this.isActive = true;
+      this.isSmile = true;
+      this.step2Visible = false;
+      this.step3 = false;
+      JEEFACETRANSFERAPI.switch_sleep(true);
     }
   },
-  created() {
+  async created() {
     if(!this.withCamera) {
       this.isActive = true
+    }
+    if(this.isPlay){
+      this.videoLoaded = false;
+      this.alreadySmile = true;
+      await this.showAndPlayVideo(); 
+      return
+    }else{
+      this.videoLoaded = false;
+      this.alreadySmile = false;
     }
   },
 }
@@ -120,13 +131,22 @@ export default {
   .isNotActive{
     opacity: 0;
   }
+  .bfg-wait-load{
+    opacity: 0;
+    &.active{
+      opacity: 1;
+    }
+  }
   .bfg-text-1{
     font-size: 2em;
     font-weight: 100;
     line-height: 34px;
+    b{
+      font-size: 0.8em;
+    }
   }
   .bfg-text-2{
-    font-size: 2.6em;
+    font-size: 2.3em;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -158,7 +178,6 @@ export default {
     position: absolute;
     width: 723px;
     height: 360px;
-    // border: 1px solid;
     background: white;
     text-align: center;
     left: 0;
@@ -167,7 +186,7 @@ export default {
     left: -362px;
     z-index: 333;
     span{
-      font-size: 2rem;
+      font-size: 2.8em;
     }
   }
   @media (max-width: 768px){
@@ -175,16 +194,21 @@ export default {
       width: 100%;
       margin:0;
       left: 0;
+      span{
+        font-size: 1.8em;
+      }
     }
     .bfg-container-video{
       width: 100%;
     }
     .bfg-text-1{
-      font-size: 1.4em;
+      font-size: 1.2em;
       font-weight: 100;
+      line-height: 20px;
     }
     .bfg-text-2{
       font-size: 1.5em;
+      line-height: 6px;
     }
     .justify-content-md-center{
       justify-content: center !important;

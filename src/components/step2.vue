@@ -2,10 +2,7 @@
   <div class="bfg-smile-modal">
       <div class="row justify-content-md-center">
         <div class="col col-lg-12">
-          <span v-if="!isDetected && !videoLoaded && !alreadySmile" class="bfg-smile-title  animate fadeIn fast">Espera un momento por favor....</span>
-          <!-- <span v-if="isSmile" class="bfg-smile-title ">wow, ¡bonita sonrisa! :)</span> -->
-          <span v-if="!isSmile && isDetected && !videoLoaded && !alreadySmile" class="bfg-smile-title  animate fadeIn fast">Estamos enfocando...
-¡sonríe ahora!</span>
+          <span v-if="!isSmile && isDetected && !videoLoaded && !alreadySmile" class="bfg-smile-title  animate fadeIn fast">¡Sonríe ahora!</span>
           <span v-if="alreadySmile" class="bfg-smile-title animate fadeIn fast" >WOW, ¡bonita sonrisa!</span>
         </div>
       </div>
@@ -23,6 +20,9 @@ export default {
     return {
       icono: iconoBfg
     }
-  }
+  },
+  updated() {
+    debugger
+  },
 }
 </script>
